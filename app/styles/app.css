@@ -55,12 +55,16 @@ body {
   z-index: 2;
 }
 
+#todoapp input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
 #new-todo {
   width: 100%;
   background: rgba(0, 0, 0, 0.02);
   padding: 0;
   border: none;
-  font-style: italic;
+  /*font-style: italic;*/
   padding: 16px 16px 16px 60px;
   box-sizing: border-box;
   outline: none;
@@ -86,6 +90,17 @@ body {
 #todo-list li {
   border-bottom: dotted 1px lightgray;
   height: 55px;
+  position: relative;
+  z-index: 5;
+}
+
+#todo-list li label {
+  -webkit-user-select: none;
+  display: inline-block;
+}
+
+#todo-list li label.completed {
+  text-decoration: line-through;
 }
 
 #todo-list li:last-child {
@@ -111,7 +126,7 @@ body {
   text-shadow: 0 -1px 0 #bfbfbf;
 }
 
-.isCompleted {
+#todo-list li.completed .toggle::before {
   color: #85ada7;
   text-shadow: 0 1px 0 #669991;
 }
@@ -120,12 +135,16 @@ body {
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   outline: none;
   border: none;
-  padding: 0 0 0 20px;
+  padding: 0 0 0 15px;
   font-size: 24px;
   margin: 0;
   color: rgb(97, 97, 97);
   width: 470px;
   -webkit-font-smoothing: antialiased;
+}
+
+#main label.todo {
+  height: 55px;
 }
 
 #footer {

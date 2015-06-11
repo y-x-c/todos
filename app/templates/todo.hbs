@@ -1,4 +1,20 @@
-<li>
-    <input type="checkbox" class="toggle" />
-    <input type="text" class="todo" value={{model.title}} />
+<li {{bind-attr class='model.isCompleted:completed'}} >
+    <!--<input type="checkbox" class="toggle" />-->
+  {{input type="checkbox" class="toggle" checked=model.isCompleted}}
+
+  {{#if model.isEditing}}
+        {{input type="text"
+            class='todo'
+            autofocus='autofocus'
+            value=model.title
+            insert-line='saveChanges'
+            focus-out='saveChanges'
+        }}
+    <!--TWO action='' on='' ARE NOT ALLOWED -->
+  {{else}}
+        <label
+          {{bind-attr class=':todo model.isCompleted:completed'}}
+          {{action "editTodo" on="doubleClick"}} >
+          {{model.title}}</label>
+  {{/if}}
 </li>
