@@ -5,7 +5,13 @@
 
     <section id="main">
         <div id="main-header">
-            <input id="new-todo" type="text" placeholder="What needs to be done?" />
+            <!--<input id="new-todo" type="text" placeholder="What needs to be done?" value=""/>-->
+            {{input id="new-todo"
+            type="text"
+            value=newTitle
+            placeholder="What needs to be done"
+            action="createTodo"}}
+            <!--WHY THIS NOT WORK??? on="focusOut"-->
         </div>
         <ul id="todo-list">
           {{outlet}}
