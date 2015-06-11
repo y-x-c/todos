@@ -10,5 +10,16 @@ export default Ember.ArrayController.extend({
       record.save();
       this.set('newTitle', '');
     }
-  }
+  },
+
+  remaining: function() {
+    var todos = this;
+    var remaining = todos.filterBy('isCompleted', false).get('length');
+    return remaining;
+  }.property('@each.isCompleted'),
+
+  inflection: function(){
+    return this.get('remaining') == 1? 'item left' : 'items left';
+  }.property('remaining')
+
 });
