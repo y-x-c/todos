@@ -10,6 +10,10 @@ export default Ember.Route.extend({
       {
         id: 2,
         title: 'Second'
+      },
+      {
+        id: 3,
+        title: 'Third'
       }
     ];
   }
