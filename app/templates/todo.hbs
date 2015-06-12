@@ -2,15 +2,16 @@
     <!--<input type="checkbox" class="toggle" />-->
   {{input type="checkbox" class="toggle" checked=model.isCompleted}}
 
-  {{#if model.isEditing}}
+  {{#if isEditing}}
         {{input type="text"
             class='todo'
             autofocus='autofocus'
             value=model.title
-            insert-line='saveChanges'
+            insert-newline='saveChanges'
             focus-out='saveChanges'
         }}
     <!--TWO action='' on='' ARE NOT ALLOWED -->
+
   {{else}}
         <label
           {{bind-attr class=':todo model.isCompleted:completed'}}
