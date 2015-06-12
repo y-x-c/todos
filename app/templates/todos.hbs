@@ -5,12 +5,18 @@
 
     <section id="main">
         <div id="main-header">
-            <!--<input id="new-todo" type="text" placeholder="What needs to be done?" value=""/>-->
-            {{input id="new-todo"
-            type="text"
-            value=newTitle
-            placeholder="What needs to be done"
-            action="createTodo"}}
+            <!--<input type="checkbox" class="toggle-all" />-->
+          {{input id='toggle-all'
+            type='checkbox'
+            classBinding=':toggle-all isAllCompleted:completed'
+            checked=isAllCompleted
+            }}
+
+          {{input id="new-todo"
+          type="text"
+          value=newTitle
+          placeholder="What needs to be done"
+          action="createTodo"}}
             <!--WHY THIS NOT WORK??? on="focusOut"-->
         </div>
         <ul id="todo-list">
@@ -21,7 +27,7 @@
     <section id="footer">
         <span id="todo-count">
             <strong>{{remaining}}</strong>
-            {{inflection}}
+          {{inflection}}
         </span>
         <ul id="filter">
             <!--<li class="active">All</li>-->

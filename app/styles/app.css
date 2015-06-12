@@ -116,6 +116,32 @@ body {
   outline: none;
 }
 
+.toggle-all {
+  width: 55px;
+  height: 40px;
+  -webkit-appearance: none;
+  margin: 10px 0 0 -7px;
+  outline: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  transform: rotate(90deg);
+  -webkit-transform-origin: 50% 50%;
+  z-index: 6;
+}
+
+.toggle-all::before {
+  content: '»';
+  font-size: 30px;
+  color: #d9d9d9;
+}
+
+input.completed.toggle-all::before {
+  color: dimgray;
+  text-shadow: 0 1px 0 #black;
+}
+
 .toggle::before {
   content: '✔';
   margin-top: auto;

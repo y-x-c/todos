@@ -22,7 +22,22 @@ export default Ember.ArrayController.extend({
 
   inflection: function(){
     return this.get('remaining') == 1? 'item left' : 'items left';
-  }.property('remaining')
+  }.property('remaining'),
 
+  isAllCompleted: function(key, value) {
 
+    if(arguments.length > 1) {
+      //this.get('model').forEach(function(todo) {
+      //  todo.set('isCompleted', value);
+      //})
+      // the following method is more brief than above
+      this.setEach('isCompleted', value);
+
+      // save is sent to each model not controller, so invoke('model.save') is incorrect
+      this.invoke('save');
+    }
+
+    var result = this.filterBy('isCompleted', false);
+    return result.length == 0;
+  }.property('@each.isCompleted')
 });
