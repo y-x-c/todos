@@ -1536,7 +1536,7 @@ catch(err) {
 if (runningTests) {
   require("todos/tests/test-helper");
 } else {
-  require("todos/app")["default"].create({"name":"todos","version":"0.0.0.e71e825b"});
+  require("todos/app")["default"].create({"name":"todos","version":"0.0.0.ce2a8b3d"});
 }
 
 /* jshint ignore:end */
