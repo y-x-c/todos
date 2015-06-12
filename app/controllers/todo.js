@@ -14,7 +14,6 @@ export default Ember.Controller.extend({
       }
     },
     removeTodo: function() {
-      console.log('oooo');
       this.model.destroyRecord();
       this.set('model.isEditing', false);
     }

@@ -1,1 +1,3 @@
-{{outlet}}
+{{#each todo in model}}
+  {{render 'todo' todo}}
+{{/each}}

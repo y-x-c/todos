@@ -24,9 +24,12 @@
             {{inflection}}
         </span>
         <ul id="filter">
-            <li class="active">All</li>
-            <li>Active</li>
-            <li>Completed</li>
+            <!--<li class="active">All</li>-->
+            <li>{{#link-to 'todos'}}All{{/link-to}}</li>
+            <!--<li>Active</li>-->
+            <li>{{#link-to 'todos.active'}}Active{{/link-to}}</li>
+            <!--<li>Completed</li>-->
+            <li>{{#link-to 'todos.completed'}}Completed{{/link-to}}</li>
         </ul>
     </section>
 </section>
