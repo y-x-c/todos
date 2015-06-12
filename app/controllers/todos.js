@@ -3,7 +3,9 @@ import Ember from 'ember';
 export default Ember.ArrayController.extend({
   actions: {
     'createTodo': function() {
-      if(!this.get('newTitle').trim()) return;
+      if(!this.get('newTitle').trim()) {
+        return;
+      }
 
       var record = this.store.createRecord('todo', {
         'title': this.get('newTitle'), // I suspect because the controller is the template-bound controller, so
@@ -35,7 +37,7 @@ export default Ember.ArrayController.extend({
   }.property('completed'),
 
   inflection: function(){
-    return this.get('remaining') == 1? 'item left' : 'items left';
+    return this.get('remaining') === 1? 'item left' : 'items left';
   }.property('remaining'),
 
   isAllCompleted: function(key, value) {
@@ -52,6 +54,6 @@ export default Ember.ArrayController.extend({
     }
 
     var result = this.filterBy('isCompleted', false);
-    return result.length == 0;
+    return result.length === 0;
   }.property('@each.isCompleted')
 });

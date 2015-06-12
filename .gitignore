@@ -3,7 +3,6 @@
 .idea
 
 # compiled output
-/dist
 /tmp
 
 # dependencies
