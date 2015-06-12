@@ -237,3 +237,24 @@ input.completed.toggle-all::before {
   right: 15px;
   outline: none;
 }
+
+#todo-list button.destroy {
+  position: absolute;
+  height: 100%;
+  right: 15px;
+  top: 0px;
+  display: none;
+  outline: none;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+}
+
+#todo-list li:hover button.destroy {
+  display: block;
+}
+
+#todo-list button.destroy:after {
+  content: '✖';
+  font-size: 20px;
+  color: darkgray;
+}
