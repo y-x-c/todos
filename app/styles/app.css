@@ -258,3 +258,12 @@ input.completed.toggle-all::before {
   font-size: 20px;
   color: darkgray;
 }
+
+#info {
+  color: #a6a6a6;
+  font-size: 12px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-top: 70px;
+  line-height: 50%;
+}
