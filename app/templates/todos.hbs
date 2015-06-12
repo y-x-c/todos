@@ -7,10 +7,10 @@
         <div id="main-header">
             <!--<input type="checkbox" class="toggle-all" />-->
           {{input id='toggle-all'
-            type='checkbox'
-            classBinding=':toggle-all isAllCompleted:completed'
-            checked=isAllCompleted
-            }}
+          type='checkbox'
+          classBinding=':toggle-all isAllCompleted:completed'
+          checked=isAllCompleted
+          }}
 
           {{input id="new-todo"
           type="text"
@@ -37,5 +37,9 @@
             <!--<li>Completed</li>-->
             <li>{{#link-to 'todos.completed'}}Completed{{/link-to}}</li>
         </ul>
+
+      {{#if hasCompleted}}
+        <button id="clear-completed" {{action 'clearCompleted'}}>Clear completed({{completed}})</button>
+      {{/if}}
     </section>
 </section>

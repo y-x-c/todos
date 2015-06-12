@@ -139,7 +139,6 @@ body {
 
 input.completed.toggle-all::before {
   color: dimgray;
-  text-shadow: 0 1px 0 #black;
 }
 
 .toggle::before {
@@ -227,4 +226,14 @@ input.completed.toggle-all::before {
 
 #filter li a.active {
   font-weight: bold;
+}
+
+#clear-completed {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.1);
+  color: #83756f;
+  border: none;
+  border-radius: 5px;
+  right: 15px;
+  outline: none;
 }

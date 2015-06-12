@@ -3,22 +3,38 @@ import Ember from 'ember';
 export default Ember.ArrayController.extend({
   actions: {
     'createTodo': function() {
-        if(!this.get('newTitle').trim()) return;
+      if(!this.get('newTitle').trim()) return;
 
-        var record = this.store.createRecord('todo', {
-          'title': this.get('newTitle'), // I suspect because the controller is the template-bound controller, so
-          'isCompleted': false
-        });
-        record.save();
-        this.set('newTitle', '');
+      var record = this.store.createRecord('todo', {
+        'title': this.get('newTitle'), // I suspect because the controller is the template-bound controller, so
+        'isCompleted': false
+      });
+      record.save();
+      this.set('newTitle', '');
+    },
+
+    'clearCompleted': function() {
+      this.filterBy('isCompleted', true).forEach(function(todo) {
+        todo.destroyRecord();
+        todo.save();
+      });
     }
+
   },
 
   remaining: function() {
-    var todos = this;
-    var remaining = todos.filterBy('isCompleted', false).get('length');
+    var remaining = this.filterBy('isCompleted', false).length;
     return remaining;
   }.property('@each.isCompleted'),
+
+  completed: function() {
+    var completed = this.filterBy('isCompleted', true).length;
+    return completed;
+  }.property('@each.isCompleted'),
+
+  hasCompleted: function() {
+    return this.get('completed') > 0;
+  }.property('completed'),
 
   inflection: function(){
     return this.get('remaining') == 1? 'item left' : 'items left';
