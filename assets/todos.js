@@ -400,7 +400,7 @@ define('todos/templates/todo', ['exports'], function (exports) {
             fragment = this.build(dom);
           }
           var morph0 = dom.createMorphAt(fragment,1,1,contextualElement);
-          inline(env, morph0, context, "edit-todo", [], {"type": "text", "class": "todo", "autofocus": "autofocus", "value": get(env, context, "model.title"), "insert-newline": "saveChanges", "focus-out": "saveChanges", "autofocus": "autofocus"});
+          inline(env, morph0, context, "edit-todo", [], {"type": "text", "class": "todo", "value": get(env, context, "model.title"), "insert-newline": "saveChanges", "focus-out": "saveChanges"});
           return fragment;
         }
       };
@@ -1536,7 +1536,7 @@ catch(err) {
 if (runningTests) {
   require("todos/tests/test-helper");
 } else {
-  require("todos/app")["default"].create({"name":"todos","version":"0.0.0.ce2a8b3d"});
+  require("todos/app")["default"].create({"name":"todos","version":"0.0.0.20c3da20"});
 }
 
 /* jshint ignore:end */
