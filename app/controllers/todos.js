@@ -40,7 +40,7 @@ export default Ember.ArrayController.extend({
     return this.get('remaining') === 1? 'item left' : 'items left';
   }.property('remaining'),
 
-  isAllCompleted: function(key, value) {
+  areAllCompleted: function(key, value) {
 
     if(arguments.length > 1) {
       //this.get('model').forEach(function(todo) {
@@ -54,6 +54,6 @@ export default Ember.ArrayController.extend({
     }
 
     var result = this.filterBy('isCompleted', false);
-    return result.length === 0;
+    return this.get('length') && result.length === 0;
   }.property('@each.isCompleted')
 });

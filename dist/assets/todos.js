@@ -128,7 +128,7 @@ define('todos/controllers/todos', ['exports', 'ember'], function (exports, Ember
       return this.get('remaining') === 1 ? 'item left' : 'items left';
     }).property('remaining'),
 
-    isAllCompleted: (function (key, value) {
+    areAllCompleted: (function (key, value) {
 
       if (arguments.length > 1) {
         //this.get('model').forEach(function(todo) {
@@ -142,7 +142,7 @@ define('todos/controllers/todos', ['exports', 'ember'], function (exports, Ember
       }
 
       var result = this.filterBy('isCompleted', false);
-      return result.length === 0;
+      return this.get('length') && result.length === 0;
     }).property('@each.isCompleted')
   });
 
@@ -873,7 +873,7 @@ define('todos/templates/todos', ['exports'], function (exports) {
         var morph6 = dom.createMorphAt(dom.childAt(element6, [7]),0,0);
         var morph7 = dom.createMorphAt(dom.childAt(element6, [11]),0,0);
         var morph8 = dom.createMorphAt(element4,5,5);
-        inline(env, morph0, context, "input", [], {"id": "toggle-all", "type": "checkbox", "classBinding": ":toggle-all isAllCompleted:completed", "checked": get(env, context, "isAllCompleted")});
+        inline(env, morph0, context, "input", [], {"id": "toggle-all", "type": "checkbox", "classBinding": ":toggle-all areAllCompleted:completed", "checked": get(env, context, "areAllCompleted")});
         inline(env, morph1, context, "input", [], {"id": "new-todo", "type": "text", "value": get(env, context, "newTitle"), "placeholder": "What needs to be done", "action": "createTodo"});
         content(env, morph2, context, "outlet");
         content(env, morph3, context, "remaining");
@@ -1536,7 +1536,7 @@ catch(err) {
 if (runningTests) {
   require("todos/tests/test-helper");
 } else {
-  require("todos/app")["default"].create({"name":"todos","version":"0.0.0.e864a67d"});
+  require("todos/app")["default"].create({"name":"todos","version":"0.0.0.e71e825b"});
 }
 
 /* jshint ignore:end */
