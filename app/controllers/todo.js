@@ -17,5 +17,15 @@ export default Ember.Controller.extend({
       this.model.destroyRecord();
       this.set('isEditing', false);
     }
-  }
+  },
+
+  isEditing: false,
+
+  isCompleted: function(key, value) {
+    if(arguments.length > 1) {
+      this.set('model.isCompleted', value);
+      this.model.save();
+    }
+    return this.get('model.isCompleted');
+  }.property('model.isCompleted')
 });
