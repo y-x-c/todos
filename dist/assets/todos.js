@@ -16,7 +16,8 @@ define('todos/app', ['exports', 'ember', 'ember/resolver', 'ember-data', 'ember/
     Resolver: Resolver['default'],
     ApplicationAdapter: DS['default'].LSAdapter.extend({
       namespace: 'todos'
-    })
+    }),
+    baseURL: config['default'].baseURL
   });
 
   loadInitializers['default'](App, config['default'].modulePrefix);
@@ -1536,7 +1537,7 @@ catch(err) {
 if (runningTests) {
   require("todos/tests/test-helper");
 } else {
-  require("todos/app")["default"].create({"name":"todos","version":"0.0.0.20c3da20"});
+  require("todos/app")["default"].create({"name":"todos","version":"0.0.0.3a1ba972"});
 }
 
 /* jshint ignore:end */
