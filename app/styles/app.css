@@ -194,6 +194,11 @@ body {
   margin: 2px;
 }
 
-#filter li.active {
+#filter li a {
+  color: #83756f;
+  text-decoration: none;
+}
+
+#filter li a.active {
   font-weight: bold;
 }
