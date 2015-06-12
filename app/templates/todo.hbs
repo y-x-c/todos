@@ -3,12 +3,13 @@
   {{input type="checkbox" class="toggle" checked=isCompleted}}
 
   {{#if isEditing}}
-        {{input type="text"
+        {{edit-todo type="text"
             class='todo'
             autofocus='autofocus'
             value=model.title
             insert-newline='saveChanges'
             focus-out='saveChanges'
+            autofocus='autofocus'
         }}
     <!--TWO action='' on='' ARE NOT ALLOWED -->
 
