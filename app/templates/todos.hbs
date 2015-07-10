@@ -1,19 +1,39 @@
+<section id="main">
+    <div id="main-header">
+        <!--<input type="checkbox" class="toggle-all" />-->
+      {{input id='toggle-all'
+      type='checkbox'
+      classBinding=':toggle-all areAllCompleted:completed'
+      checked=areAllCompleted
+      }}
 
-<div id="main-header">
-    <!--<input type="checkbox" class="toggle-all" />-->
-  {{input id='toggle-all'
-  type='checkbox'
-  classBinding=':toggle-all areAllCompleted:completed'
-  checked=areAllCompleted
-  }}
+      {{input id="new-todo"
+      type="text"
+      value=newTitle
+      placeholder="What needs to be done"
+      action="createTodo"}}
+        <!--WHY THIS NOT WORK??? on="focusOut"-->
+    </div>
+    <ul id="todo-list">
+      {{outlet}}
+    </ul>
+</section>
 
-  {{input id="new-todo"
-  type="text"
-  value=newTitle
-  placeholder="What needs to be done"
-  action="createTodo"}}
-    <!--WHY THIS NOT WORK??? on="focusOut"-->
-</div>
-<ul id="todo-list">
-  {{outlet}}
-</ul>
+<section id="footer">
+        <span id="todo-count">
+            <strong>{{remaining}}</strong>
+          {{inflection}}
+        </span>
+    <ul id="filter">
+        <!--<li class="active">All</li>-->
+        <li>{{#link-to 'todos.index'}}All{{/link-to}}</li>
+        <!--<li>Active</li>-->
+        <li>{{#link-to 'todos.active'}}Active{{/link-to}}</li>
+        <!--<li>Completed</li>-->
+        <li>{{#link-to 'todos.completed'}}Completed{{/link-to}}</li>
+    </ul>
+
+  {{#if hasCompleted}}
+      <button id="clear-completed" {{action 'clearCompleted'}}>Clear completed({{completed}})</button>
+  {{/if}}
+</section>
