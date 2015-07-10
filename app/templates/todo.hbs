@@ -1,22 +1,30 @@
-<li {{bind-attr class='model.isCompleted:completed'}} >
+
+<div {{bind-attr class=':detail-header model.isCompleted:completed'}}>
     <!--<input type="checkbox" class="toggle" />-->
-  {{input type="checkbox" class="toggle" checked=isCompleted}}
+    <input type="checkbox" class="back" {{action 'back'}} />
 
   {{#if isEditing}}
-        {{edit-todo type="text"
-            class='todo'
-            value=model.title
-            insert-newline='saveChanges'
-            focus-out='saveChanges'
-        }}
-    <!--TWO action='' on='' ARE NOT ALLOWED -->
+    {{edit-todo type="text"
+    class='title'
+    value=model.title
+    insert-newline='saveChanges'
+    focus-out='saveChanges'
+    }}
+      <!--TWO action='' on='' ARE NOT ALLOWED -->
 
   {{else}}
-        <label
-          {{bind-attr class=':todo model.isCompleted:completed'}}
-          {{action "editTodo" on="doubleClick"}} >
-          {{model.title}}</label>
+      <label
+        {{bind-attr class=':title model.isCompleted:completed'}}
+        {{action "editTodo" on="doubleClick"}} >
+        {{model.title}}</label>
   {{/if}}
 
-  <button class="destroy" {{action 'removeTodo'}}></button>
-</li>
+    <button class="destroy" {{action 'removeTodo'}}></button>
+</div>
+
+<div class="details">
+  {{textarea class="details" type="text" value=model.details rows="10" focus-out='saveChanges'}}
+
+    <button id="increase" {{action 'increase'}}></button>
+    <button id="decrease" {{action 'decrease'}}></button>
+</div>

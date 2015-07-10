@@ -16,21 +16,30 @@ export default Ember.Controller.extend({
     removeTodo: function() {
       this.model.destroyRecord();
       this.set('isEditing', false);
-      this.send('back');
     },
-    back: function() {
-      //this.transitionTo('todos.index');
-      window.history.back();
+    details: function() {
+      if(this.get('model.isCompleted')) return;
+      this.transitionToRoute('todo', this.get('model'));
     },
-    increase: function() {
-      var size = parseInt(Ember.$('textarea.details').css("font-size"));
-      Ember.$('textarea.details').css("font-size", size + 2 + "px");
-    },
-    decrease: function() {
-      var size = parseInt(Ember.$('textarea.details').css("font-size"));
-      Ember.$('textarea.details').css("font-size", size - 2 + "px");
+    onClick: function() {
+      var e = this.get('clickEvent');
+
+      if(e === null) {
+        e = Ember.run.later(this, function() {
+          this.send('details');
+          this.set('clickEvent', null);
+        }, 300);
+
+        this.set('clickEvent', e);
+      } else {
+        Ember.run.cancel(e);
+        this.set('clickEvent', null);
+        this.send('editTodo');
+      }
     }
   },
+
+  clickEvent: null,
 
   isEditing: false,
 

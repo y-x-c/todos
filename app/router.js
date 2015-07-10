@@ -10,6 +10,7 @@ Router.map(function() {
     this.route('active');
     this.route('completed');
   });
+  this.route('todo', {path: "/todo/:id"});
 });
 
 export default Router;

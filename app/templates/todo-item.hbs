@@ -1,0 +1,22 @@
+<li {{bind-attr class='model.isCompleted:completed'}} >
+    <!--<input type="checkbox" class="toggle" />-->
+  {{input type="checkbox" class="toggle" checked=isCompleted}}
+
+  {{#if isEditing}}
+    {{edit-todo type="text"
+    class='todo'
+    value=model.title
+    insert-newline='saveChanges'
+    focus-out='saveChanges'
+    }}
+      <!--TWO action='' on='' ARE NOT ALLOWED -->
+
+  {{else}}
+      <label
+        {{bind-attr class=':todo model.isCompleted:completed'}}
+        {{action 'onClick' on='click'}}>
+        {{model.title}}</label>
+  {{/if}}
+
+    <button class="destroy" {{action 'removeTodo'}}></button>
+</li>

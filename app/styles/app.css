@@ -166,6 +166,7 @@ input.completed.toggle-all::before {
   color: rgb(97, 97, 97);
   width: 470px;
   -webkit-font-smoothing: antialiased;
+  margin-left: 1px;
 }
 
 #main label.todo {
@@ -267,3 +268,139 @@ input.completed.toggle-all::before {
   margin-top: 70px;
   line-height: 50%;
 }
+
+#back {
+  line-height: 55px;
+}
+
+.detail-header {
+  line-height: 55px;
+  position: relative;
+}
+
+.detail-header input.back {
+  width: 55px;
+  height: 40px;
+  -webkit-appearance: none;
+  margin: 10px 0 0 -7px;
+  outline: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  transform: rotate(180deg);
+  -webkit-transform-origin: 50% 50%;
+  z-index: 6;
+}
+
+.detail-header input.back::before {
+  content: '»';
+  font-size: 30px;
+  color: #d9d9d9;
+}
+
+.detail-header label.title {
+  display: inline-block;
+  width: 100%;
+  height: 61px;
+  background: rgba(0, 0, 0, 0.02);
+  border: none;
+  /*font-style: italic;*/
+  padding: 3px 16px 3px 60px;
+  box-sizing: border-box;
+  outline: none;
+  border-bottom: dotted 1px lightgray;
+  font-size: 24px;
+  z-index: 5;
+  position: relative;
+  color: rgb(97, 97, 97);
+}
+
+.detail-header input.title {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.02);
+  border: none;
+  /*font-style: italic;*/
+  padding: 16px 16px 16px 60px;
+  box-sizing: border-box;
+  outline: none;
+  border-bottom: dotted 1px lightgray;
+  font-size: 24px;
+  z-index: 5;
+  position: relative;
+  color: rgb(97, 97, 97);
+}
+
+.detail-header button.destroy {
+  position: absolute;
+  height: 100%;
+  right: 15px;
+  top: 0px;
+  display: block;
+  outline: none;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  z-index: 5;
+}
+
+.detail-header button.destroy:after {
+  content: '✖';
+  font-size: 20px;
+  color: darkgray;
+}
+
+div.details {
+  width: 100%;
+  position: relative;
+}
+
+textarea.details {
+  width: 100%;
+
+  border: none;
+  /*font-style: italic;*/
+  padding: 16px 16px 16px 60px;
+  box-sizing: border-box;
+  outline: none;
+  border-bottom: dotted 1px lightgray;
+  font-size: 18px;
+  margin: 0;
+  position: relative;
+  color: rgb(97, 97, 97);
+}
+
+
+button#increase {
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+  display: block;
+  outline: none;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  z-index: 10;
+}
+
+button#increase:after {
+  content: '+';
+  font-size: 20px;
+  color: darkgray;
+}
+
+button#decrease {
+  position: absolute;
+  right: 15px;
+  bottom: 0;
+  display: block;
+  outline: none;
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  z-index: 10;
+}
+
+button#decrease:after {
+  content: '-';
+  font-size: 20px;
+  color: darkgray;
+}
+

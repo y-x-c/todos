@@ -1,1 +1,33 @@
-{{outlet}}
+<section id="todoapp">
+    <header id="header">
+        <h2>todos</h2>
+    </header>
+
+    <section id="main">
+      {{outlet}}
+    </section>
+
+    <section id="footer">
+        <span id="todo-count">
+            <strong>{{remaining}}</strong>
+          {{inflection}}
+        </span>
+        <ul id="filter">
+            <!--<li class="active">All</li>-->
+            <li>{{#link-to 'todos.index'}}All{{/link-to}}</li>
+            <!--<li>Active</li>-->
+            <li>{{#link-to 'todos.active'}}Active{{/link-to}}</li>
+            <!--<li>Completed</li>-->
+            <li>{{#link-to 'todos.completed'}}Completed{{/link-to}}</li>
+        </ul>
+
+      {{#if hasCompleted}}
+          <button id="clear-completed" {{action 'clearCompleted'}}>Clear completed({{completed}})</button>
+      {{/if}}
+    </section>
+</section>
+
+<footer id="info">
+    <p>Double click to edit a todo</p>
+    <p>Created by Yuxin Chen, last updated July 10, 2015</p>
+</footer>
